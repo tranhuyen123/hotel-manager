@@ -148,7 +148,50 @@ namespace QLKhachSan.GUI.Controls
                 ActiveControl = txtSDT;
             }
         }
+ private void btnInHoaDon_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    var isExist = db.KHACHHANGs.Where(x => x.SDT.Equals(txtSDT.Text.Trim())).FirstOrDefault();
 
+                    var sdp = db.PHIEUTHUEPHONGs.Where(x => x.MaKH.Equals(isExist.MaKH)).FirstOrDefault();
+
+                    if (sdp != null)
+                    {
+                        var phong = db.PHONGs.Where(x => x.MaPhong.Equals(sdp.MaPhong)).FirstOrDefault();
+                        phong.TrangThai = "Trống";
+                    }
+
+                    //var sdv = db.PHIEUTHUEPHONGs.Where(x => x.MaKH.Equals(isExist.MaKH)).FirstOrDefault();
+                    //if (sdv != null)
+                    //    sdv.TRANGTHAI = 1;
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                }
+                PrintDialog _PrintDialog = new PrintDialog();
+                PrintDocument _PrintDocument = new PrintDocument();
+
+                _PrintDialog.Document = _PrintDocument; //add the document to the dialog box
+
+                _PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(_CreateReceipt); //add an event handler that will do the printing
+                //on a till you will not want to ask the user where to print but this is fine for the test envoironment.
+                DialogResult result = _PrintDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    _PrintDocument.Print();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
       
     }
 }
