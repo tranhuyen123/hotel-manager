@@ -1,4 +1,4 @@
-CREATE DATABASE QUANLYKHACHSAN
+﻿CREATE DATABASE QUANLYKHACHSAN
 
 
 CREATE TABLE QUYEN(
@@ -82,8 +82,9 @@ CREATE TABLE DICHVU_SD(
 	   MaDV nvarchar(20) references DICHVU(MaDV),
 	   primary key (MaPhong,MaDV),
 	   SoLuong int,
-	   TongTien real
+	  
 )
+
 CREATE TABLE HOADON(
        MaHD nvarchar(20) primary key,
 	   MaKH nvarchar(20) references KHACHHANG(MaKH),
@@ -99,16 +100,56 @@ CREATE TABLE CHITIETHD(
 	   NgayNhan datetime,
 	   NgayTra datetime,
 	   SoNgay int,
-	   PhuThu bit,
-	   TienPhong money,
-	   TraTruoc money,
 	   ThanhTien money
 )
 
 CREATE TABLE PHIEUTHUEPHONG
 (
-     MaPhieu nvarchar(20) primary key,
+    MaPhieu nvarchar(20) primary key,
 	 MaKH nvarchar(20) references KHACHHANG(MaKH),
 	 MaPhong nvarchar(20) references PHONG(MaPhong),
 	 NgayNhan datetime,
 )
+
+INSERT INTO QUYEN Values(1,N'Quản lý'),
+                         (2,N'Tiếp tân')
+INSERT INTO BOPHAN Values(1,N'Quản lý'),
+                         (2,N'Chăm sóc khách hàng')   
+INSERT INTO NHANVIEN Values('1',N'Trần Quang Huy','1615089812','1998/08/23','Nam','0983467832',N'Hà Nội',1,1)
+ INSERT INTO TAIKHOAN    VALUES('ID01','huy123','1')                       
+INSERT INTO KHACHHANG VALUES ('KH01',N'Trần Văn Hưởng','1615023234','0353485333','Nam',N'Nam Định')		
+INSERT INTO LOAIPHONG VALUES ('LP01','Stardard',2000000,2,4)
+  INSERT INTO LOAIPHONG VALUES ('LP02','Superior',3000000,2,4),
+							  ('LP03','Deluxe',5000000,2,6),
+							  ('LP04','Suite',7000000,2,6)
+
+INSERT INTO PHONG VALUES ('P01','P101','LP01',N'Đã ở'),
+                          ('P02','P102','LP01',N'Trống'),
+						  ('P03','P103','LP01',N'Trống'),
+						  ('P04','P104','LP01',N'Trống'),
+						  ('P05','P201','LP02',N'Trống'),
+						  ('P06','P202','LP02',N'Trống'),
+						  ('P07','P203','LP02',N'Trống'),
+						  ('P08','P204','LP02',N'Trống'),
+						  ('P09','P301','LP03',N'Trống')
+INSERT INTO DICHVU VALUES ('DV01',N'Mì tôm',5000),
+                           ('DV02',N'Nước ngọt',10000),
+						   ('DV03',N'Spa',100000),
+						   ('DV04',N'Giặt là',100000),
+						   ('DV05',N'Xe đưa đón',500000)
+INSERT INTO THIETBI VALUES ('TB01',N'Ti vi',NULL),
+                            ('TB02',N'Điều hòa',NULL),
+							('TB03',N'Nóng lạnh',NULL),
+							('TB04',N'Quạt',NULL)
+INSERT INTO THIETBI_SD VALUES ('P01','TB01',1),
+                               ('P01','TB02',1),
+							   ('P01','TB03',1),
+							   ('P01','TB04',1)
+                                                      
+INSERT INTO DICHVU_SD VALUES ('P01','DV01',1)  
+INSERT INTO PHIEUTHUEPHONG VALUES('MP101','KH01','P01','2020/02/20 8:00:00') 
+INSERT INTO HOADON VALUES('111','KH01','1','2020/02/20 8:00:00',2050000)    
+INSERT INTO CHITIETHD VALUES('111','P01','0','2020/02/20 8:00:00','2020/02/21 8:00:00',1,2000000) 
+   
+
+           			         
