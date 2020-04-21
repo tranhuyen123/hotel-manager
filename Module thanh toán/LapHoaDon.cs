@@ -23,10 +23,7 @@ namespace QLKhachSan.GUI.Controls
             setNV();
         }
        
-        private List<string> lstDV = new List<string>();
-        private List<string> lstPhong = new List<string>();
-        private List<decimal> lstGiaDV = new List<decimal>();
-        private List<decimal> lstGiaPhong = new List<decimal>();
+       
         private double sum = 0;
         string tenphong;
         string tenKH;
@@ -115,7 +112,7 @@ namespace QLKhachSan.GUI.Controls
                     MaKH = ABC.mkh,
                     MaNV= result1.mnv,
                     NgayLap= DateTime.Now,
-                   // TongTien=Int32.Parse(textBoxTT.Text),
+                  
 
                    
 
@@ -128,7 +125,7 @@ namespace QLKhachSan.GUI.Controls
                     NgayNhan=ABC.ptp,
                     NgayTra=DateTime.Now,
                     SoNgay=Int32.Parse(textBoxSoNgay.Text),
-                  //  ThanhTien=Int32.Parse(textBoxTien.Text),
+                 
                 };
                 db.HOADONs.AddOrUpdate(newHD);
                 db.CHITIETHDs.AddOrUpdate(newCTHD);
@@ -176,15 +173,14 @@ namespace QLKhachSan.GUI.Controls
             int j = 1;
             foreach (var temp in ASD)
             {
-             //   lstPhong.Add((temp.MaPhong).ToString());
+             
                 dataGridViewThongKe.Rows.Add((j++).ToString(),temp.mhd,tenNV,tenKH,tenphong,temp.giamgia,null,null,null,temp.SoNgay,temp.GiaPhong,(temp.SoNgay * temp.GiaPhong ) - Convert.ToDecimal(temp.giamgia));
                 sum += Convert.ToDouble((temp.SoNgay * temp.GiaPhong) - Convert.ToDecimal(temp.giamgia));
             }
             j = 1;
             foreach (var temp in result2)
             {
-               // lstDV.Add(temp.TenDichVu);
-                //lstGiaDV.Add(Convert.ToDecimal(temp.GiaDV));
+              
                 dataGridViewThongKe.Rows.Add(++j,null,null,null,null,null, temp.TenDichVu, temp.SOLUONG, temp.GiaDV, null, null,  temp.GiaDV * temp.SOLUONG);
                 sum += Convert.ToDouble(temp.GiaDV * temp.SOLUONG);
             }
@@ -325,9 +321,6 @@ namespace QLKhachSan.GUI.Controls
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }
