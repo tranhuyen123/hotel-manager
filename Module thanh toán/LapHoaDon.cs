@@ -112,11 +112,7 @@ namespace QLKhachSan.GUI.Controls
                     MaKH = ABC.mkh,
                     MaNV= result1.mnv,
                     NgayLap= DateTime.Now,
-                  
-
-                   
-
-                };
+                 };
                 var newCTHD = new CHITIETHD()
                 {
                     MaHD=textBoxMaHD.Text,
