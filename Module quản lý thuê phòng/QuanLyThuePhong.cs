@@ -86,7 +86,7 @@ namespace QLKhachSan.GUI.Controls
                              from p in db.PHONGs
                              join sd in db.PHIEUTHUEPHONGs on p.MaPhong equals sd.MaPhong
                              join kh in db.KHACHHANGs on sd.MaKH equals kh.MaKH
-                            // join hd in db.HOADONs on kh.MaKH equals hd.MaKH
+                           
                              where p.TrangThai.Contains("Đã ở")
                              select new
                              {
@@ -160,7 +160,7 @@ namespace QLKhachSan.GUI.Controls
         private void dgvThuePhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             index = dgvThuePhong.CurrentRow.Index;
-           // stt=  dgvThuePhong.Rows[index].Cells[0].Value.ToString();
+          
           
             txtMaKhachHang.Text = dgvThuePhong.Rows[index].Cells[1].Value.ToString();
 
@@ -185,16 +185,14 @@ namespace QLKhachSan.GUI.Controls
         private void dgvThuePhong_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             index = dgvThuePhong.CurrentRow.Index;
-            // stt=  dgvThuePhong.Rows[index].Cells[0].Value.ToString();
-           // txtTenKhachHang.Text = dgvThuePhong.Rows[index].Cells[0].Value.ToString();
+          
             txtMaKhachHang.Text = dgvThuePhong.Rows[index].Cells[1].Value.ToString();
 
-           // txtDiaChi.Text = dgvThuePhong.Rows[index].Cells[2].Value.ToString();
+           
             txtMaPhong.Text = dgvThuePhong.Rows[index].Cells[3].Value.ToString();
-           // txtTenPhong.Text = dgvThuePhong.Rows[index].Cells[4].Value.ToString();
+          
             dateTimePicker1.Text = dgvThuePhong.Rows[index].Cells[5].Value.ToString();
-           // txtTrangThai.Text = dgvThuePhong.Rows[index].Cells[6].Value.ToString();
-
+          
         }
 
         private void label2_Click(object sender, EventArgs e)
