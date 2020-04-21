@@ -148,7 +148,120 @@ namespace QLKhachSan.GUI.Controls
                 ActiveControl = txtSDT;
             }
         }
+ 
+        private void _CreateReceipt(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics graphic = e.Graphics;
+            Font font = new Font("Courier New", 12);
+            float FontHeight = font.GetHeight();
+            int startX = 10;
+            int startY = 10;
+            int offset = 40;
 
+            graphic.DrawString("Hóa đơn thanh toán", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
+            int index = 0;
+            if (lstPhong.Count >= 1)
+            {
+                string top = "Mã phòng".PadRight(24) + "Thành Tiền";
+                graphic.DrawString(top, font, new SolidBrush(Color.Black), startX, startY + offset);
+                offset = offset + (int)FontHeight; //make the spacing consistent
+                graphic.DrawString("----------------------------------", font, new SolidBrush(Color.Black), startX, startY + offset);
+                offset = offset + (int)FontHeight + 5; //make the spacing consistent
+
+                foreach (string item in lstPhong)
+                {
+                    graphic.DrawString(item, font, new SolidBrush(Color.Black), startX, startY + offset);
+                    graphic.DrawString(lstGiaPhong[index++].ToString(), font, new SolidBrush(Color.Black), startX + 250, startY + offset);
+                    offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+                }
+
+                offset = offset + 20; //make some room so that the total stands out.
+            }
+
+            if (lstDV.Count >= 1)
+            {
+                string top1 = "Tên dịch vụ".PadRight(24) + "Thành Tiền";
+                graphic.DrawString(top1, font, new SolidBrush(Color.Black), startX, startY + offset);
+                offset = offset + (int)FontHeight; //make the spacing consistent
+                graphic.DrawString("----------------------------------", font, new SolidBrush(Color.Black), startX, startY + offset);
+                offset = offset + (int)FontHeight + 5; //make the spacing consistent
+
+                index = 0;
+                foreach (string item in lstDV)
+                {
+                    graphic.DrawString(item, font, new SolidBrush(Color.Black), startX, startY + offset);
+                    graphic.DrawString(lstGiaDV[index++].ToString(), font, new SolidBrush(Color.Black), startX + 250, startY + offset);
+                    offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+                }
+
+                offset = offset + 20; //make some room so that the total stands out.
+            }
+
+            graphic.DrawString("TỔNG TIỀN TRẢ ", new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString(_DoiSoSangDonViTienTe(sum), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX + 250, startY + offset);
+
+            offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+            graphic.DrawString("TIỀN MẶT ", font, new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString(_DoiSoSangDonViTienTe(txtTienTra.Text.Trim()), font, new SolidBrush(Color.Black), startX + 250, startY + offset);
+
+            offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+            graphic.DrawString("TIỀN DƯ ", font, new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString(_DoiSoSangDonViTienTe((sum - Convert.ToDouble(txtTienTra.Text.Trim()))), font, new SolidBrush(Color.Black), startX + 250, startY + offset);
+
+            offset = offset + 20; //make some room so that the total stands out.
+
+            offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+            graphic.DrawString(" CẢM ƠN BẠN ĐÃ GHÉ THĂM!,", font, new SolidBrush(Color.Black), startX, startY + offset);
+            offset = offset + (int)FontHeight + 5; //make the spacing consistent              
+            graphic.DrawString("HI VỌNG BẠN SẼ GHÉ THĂM LẠI!", font, new SolidBrush(Color.Black), startX, startY + offset);
+        }
+
+        
+
+        private void btnInHoaDon_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    var isExist = db.KHACHHANGs.Where(x => x.SDT.Equals(txtSDT.Text.Trim())).FirstOrDefault();
+
+                    var sdp = db.PHIEUTHUEPHONGs.Where(x => x.MaKH.Equals(isExist.MaKH)).FirstOrDefault();
+
+                    if (sdp != null)
+                    {
+                        var phong = db.PHONGs.Where(x => x.MaPhong.Equals(sdp.MaPhong)).FirstOrDefault();
+                        phong.TrangThai = "Trống";
+                    }
+
+                    //var sdv = db.PHIEUTHUEPHONGs.Where(x => x.MaKH.Equals(isExist.MaKH)).FirstOrDefault();
+                    //if (sdv != null)
+                    //    sdv.TRANGTHAI = 1;
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                }
+                PrintDialog _PrintDialog = new PrintDialog();
+                PrintDocument _PrintDocument = new PrintDocument();
+
+                _PrintDialog.Document = _PrintDocument; //add the document to the dialog box
+
+                _PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(_CreateReceipt); //add an event handler that will do the printing
+                //on a till you will not want to ask the user where to print but this is fine for the test envoironment.
+                DialogResult result = _PrintDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    _PrintDocument.Print();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
        
     }
 }
