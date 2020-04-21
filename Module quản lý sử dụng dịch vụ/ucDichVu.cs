@@ -23,9 +23,9 @@ namespace QLKhachSan.GUI.Controls
         public ucDichVu()
         {
             InitializeComponent();
-           setCbbPhong();
+            setCbbPhong();
             setCbbSoLuong();
-           setCbbDichVu();
+            setCbbDichVu();
 
         }
 
@@ -71,12 +71,12 @@ namespace QLKhachSan.GUI.Controls
         private void themDV()
         {
             tenphong = cbbPhong.SelectedItem.ToString();
-            var result = (from sdp in db.DICHVU_SD
+            var result = (from sdp in db.PHIEUTHUEPHONGs
                           join p in db.PHONGs on sdp.MaPhong equals p.MaPhong
                           where p.SoPhong == tenphong
                           select new
                           {
-                              mkh = sdp.MaPhong,
+                              mp = sdp.MaPhong,
                           }
                           ).FirstOrDefault();
             tendv = cbbDichVu.SelectedItem.ToString();
@@ -93,11 +93,9 @@ namespace QLKhachSan.GUI.Controls
                 var newSDDV = new DICHVU_SD()
                 {
                     MaDV = ABC.mdv,
-                    MaPhong =result.mkh,
+                    MaPhong =result.mp,
                     
-                   //  MaKH = result.mkh,
-                  //  MAHOADON = null,
-                  //  NGAYSD = DateTime.Now,
+                  
                     SoLuong = Convert.ToInt16(cbbSoLuong.SelectedItem),
 
                 };
@@ -125,15 +123,7 @@ namespace QLKhachSan.GUI.Controls
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            dgvThongKe.Rows.Clear();
-            themDV();
-            inDichVu();
-            cbbPhong.SelectedIndex = -1;
-            cbbDichVu.SelectedIndex = -1;
-            cbbSoLuong.SelectedIndex = -1;
-        }
+       
 
         private void btnThem_Click_1(object sender, EventArgs e)
         {
