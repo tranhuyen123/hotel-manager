@@ -14,7 +14,7 @@ namespace QLKhachSan.GUI.Controls
 {
     public partial class QuanLyTraPhong : Form
     {
-        // QLKhachSanContext db = new QLKhachSanContext();
+        
         public QuanLyTraPhong()
         {
             InitializeComponent();
