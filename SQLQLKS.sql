@@ -30,8 +30,11 @@ CREATE TABLE TAIKHOAN
      
      ID nvarchar(100) primary key ,
 	 MatKhau nvarchar(50) NOT NULL,
-	 MaNV nvarchar(20) references NHANVIEN(MaNV)
+	 MaNV nvarchar(20) references NHANVIEN(MaNV),
+	 TenDangNhap nvarchar(50)
 )
+ALTER TABLE TAIKHOAN
+ADD TenDangNhap nvarchar(50)
 CREATE TABLE KHACHHANG(
        MaKH nvarchar(20) primary key,
 	   TenKH nvarchar(50),
