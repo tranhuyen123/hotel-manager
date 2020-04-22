@@ -24,7 +24,7 @@ namespace QLKhachSan.GUI.Controls
             string pass = textBoxPass.Text.Trim();
             if(id !=""|| pass !="")
             {
-                var t = db.TAIKHOANs.Where(p => p.MaNV.Equals(id) && p.MatKhau.Equals(pass));
+                var t = db.TAIKHOANs.Where(p => p.TenDangNhap.Equals(id) && p.MatKhau.Equals(pass));
                 TAIKHOAN u = t.Count() == 1 ? t.Single() : null;
                 if (u != null)
                 {
@@ -45,14 +45,10 @@ namespace QLKhachSan.GUI.Controls
 
             }
 
-       }
+     
     
 
-        private void buttonĐK_Click(object sender, EventArgs e)
-            {
-                DangKy a = new DangKy();
-                a.ShowDialog();
-            }
+       
         
 
     }
