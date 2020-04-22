@@ -25,9 +25,7 @@ namespace QLKhachSan.GUI
         {
 
            
-                QuanLyNhanVien qlnd = new QuanLyNhanVien();
-                qlnd.ShowDialog();
-           
+             
               
 
            
@@ -97,8 +95,8 @@ namespace QLKhachSan.GUI
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HoaDon b = new HoaDon();
-            b.ShowDialog();
+            //HoaDon b = new HoaDon();
+            //b.ShowDialog();
         }
 
         private void quảnLýThuêToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,6 +143,38 @@ namespace QLKhachSan.GUI
            
           
            
+        }
+
+        private void lậpHĐToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LapHoaDon a = new LapHoaDon();
+
+            a.ShowDialog();
+        }
+
+        private void lậpHĐToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LapHoaDon a = new LapHoaDon();
+
+            a.ShowDialog();
+        }
+
+        private void hóaĐơnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HoaDon a = new HoaDon();
+            a.ShowDialog();
+        }
+
+        private void quảnLýNgườiDùngToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Quanlytaikhoan a = new Quanlytaikhoan();
+            a.ShowDialog();
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyNhanVien a = new QuanLyNhanVien();
+            a.ShowDialog();
         }
     }
 }
