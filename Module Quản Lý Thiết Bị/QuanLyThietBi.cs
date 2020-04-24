@@ -17,6 +17,23 @@ namespace QLKhachSan.GUI.Controls
         public QuanLyThietBi()
         {
             InitializeComponent();
+            setCbbPhong();
+        }
+        string tenphong;
+        QUANLYKHACHSANEntities db = new QUANLYKHACHSANEntities();
+        List<string> getAllPhong()
+        {
+            List<string> p = new List<string>();
+            p = db.PHONGs.Select(x => x.SoPhong).ToList();
+            return p;
+        }
+        private void setCbbPhong()
+        {
+            List<string> P = getAllPhong();
+            foreach (string temp1 in P)
+            {
+                comboBoxTB.Items.Add(temp1);
+            }
         }
         /// <summary>
         /// /bảng thiết bị
@@ -140,8 +157,8 @@ namespace QLKhachSan.GUI.Controls
         {
 
             Binding bdMa = new Binding("text", dtgv.DataSource, "Mã_Phòng", true, DataSourceUpdateMode.OnPropertyChanged);
-            textBoxMP.DataBindings.Clear();
-            textBoxMP.DataBindings.Add(bdMa);
+            comboBoxTB.DataBindings.Clear();
+            comboBoxTB.DataBindings.Add(bdMa);
 
             Binding bdMaTB = new Binding("text", dtgv.DataSource, "Mã_TB", true, DataSourceUpdateMode.OnPropertyChanged);
             textBoxMa.DataBindings.Clear();
@@ -196,7 +213,7 @@ namespace QLKhachSan.GUI.Controls
         {
             index = dataGridViewTB.CurrentRow.Index;
             textBoxMa.Text = dataGridViewTB.Rows[index].Cells[0].Value.ToString();
-            textBoxMP.Text = dataGridViewTB.Rows[index].Cells[3].Value.ToString();
+            comboBoxTB.Text = dataGridViewTB.Rows[index].Cells[3].Value.ToString();
             textBoxSL.Text = dataGridViewTB.Rows[index].Cells[5].Value.ToString();
 
 
@@ -255,27 +272,34 @@ namespace QLKhachSan.GUI.Controls
 
         private void buttonThemTBP_Click(object sender, EventArgs e)
         {
-            using (QUANLYKHACHSANEntities db = new QUANLYKHACHSANEntities())
-            {
+            tenphong = comboBoxTB.SelectedItem.ToString();
+            var ABC = (from p in db.PHONGs
+                       where p.SoPhong==tenphong
+                       select new
+                       {
+                           mdv = p.MaPhong
+                       }
+                       ).FirstOrDefault();
+           
                 THIETBI_SD tb = new THIETBI_SD
                 {
                     MaTB = textBoxMa.Text,
-                    MaPhong= textBoxMP.Text,
+                    MaPhong=ABC.mdv,
                     SoLuong = Int32.Parse(textBoxSL.Text),
 
 
                 };
                
+               
                 db.THIETBI_SD.Add(tb);
-              //  var phong = (from p in db.PHONGs where p.MaPhong.Equals(textBoxMP.Text) select p).FirstOrDefault();
-               // db.PHONGs.Add(phong);
+             
                
 
                 db.SaveChanges();
                 MessageBox.Show("Thêm thiết bị thành công");
 
                 LoadTBSD(dataGridViewTB);
-            }
+            
 
         }
 
@@ -289,7 +313,7 @@ namespace QLKhachSan.GUI.Controls
             using (QUANLYKHACHSANEntities db = new QUANLYKHACHSANEntities())
             {
                 var dv = db.THIETBI_SD.Where(x => x.MaTB == textBoxMa.Text).FirstOrDefault();
-                dv.MaPhong= textBoxMP.Text;
+                dv.MaPhong= comboBoxTB.Text;
                 dv.SoLuong = Int32.Parse(textBoxSL.Text);
                
                 db.THIETBI_SD.AddOrUpdate(dv);

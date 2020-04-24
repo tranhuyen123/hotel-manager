@@ -213,6 +213,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBoxTB);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.buttonThemTBP);
@@ -309,6 +310,14 @@
             this.dataGridViewTBP.Size = new System.Drawing.Size(377, 153);
             this.dataGridViewTBP.TabIndex = 6;
             this.dataGridViewTBP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTBP_CellContentClick);
+            // 
+            // comboBoxTB
+            // 
+            this.comboBoxTB.FormattingEnabled = true;
+            this.comboBoxTB.Location = new System.Drawing.Point(96, 56);
+            this.comboBoxTB.Name = "comboBoxTB";
+            this.comboBoxTB.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTB.TabIndex = 15;
             // 
             // label9
             // 
@@ -414,5 +423,6 @@
         private System.Windows.Forms.Button buttonThemTBP;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBoxTB;
     }
 }
