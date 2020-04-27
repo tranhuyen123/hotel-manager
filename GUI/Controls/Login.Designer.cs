@@ -35,7 +35,7 @@
             this.textBoxPass = new System.Windows.Forms.TextBox();
             this.buttonDangNhap = new System.Windows.Forms.Button();
             this.buttonThoat = new System.Windows.Forms.Button();
-            this.buttonĐK = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,15 +105,15 @@
             this.buttonThoat.Text = "Thoát";
             this.buttonThoat.UseVisualStyleBackColor = true;
             // 
-            // buttonĐK
+            // button1
             // 
-            this.buttonĐK.Location = new System.Drawing.Point(70, 204);
-            this.buttonĐK.Name = "buttonĐK";
-            this.buttonĐK.Size = new System.Drawing.Size(75, 23);
-            this.buttonĐK.TabIndex = 7;
-            this.buttonĐK.Text = "Đăng ký";
-            this.buttonĐK.UseVisualStyleBackColor = true;
-            this.buttonĐK.Click += new System.EventHandler(this.buttonĐK_Click);
+            this.button1.Location = new System.Drawing.Point(90, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Đăng ký";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
@@ -121,7 +121,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(492, 274);
-            this.Controls.Add(this.buttonĐK);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonThoat);
             this.Controls.Add(this.buttonDangNhap);
             this.Controls.Add(this.textBoxPass);
@@ -146,6 +146,6 @@
         private System.Windows.Forms.TextBox textBoxPass;
         private System.Windows.Forms.Button buttonDangNhap;
         private System.Windows.Forms.Button buttonThoat;
-        private System.Windows.Forms.Button buttonĐK;
+        private System.Windows.Forms.Button button1;
     }
 }
