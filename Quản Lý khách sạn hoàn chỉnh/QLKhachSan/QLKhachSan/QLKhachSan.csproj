@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{434AA468-9EE2-4B3B-9F89-4B404151DD95}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QLKhachSan</RootNamespace>
+    <AssemblyName>QLKhachSan</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="Cons\cons.cs" />
+    <Compile Include="GUI\Controls\DangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\DangKy.Designer.cs">
+      <DependentUpon>DangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn dịch vụ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn dịch vụ.Designer.cs">
+      <DependentUpon>Hướng dẫn dịch vụ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn quản lý phòng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn quản lý phòng.Designer.cs">
+      <DependentUpon>Hướng dẫn quản lý phòng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thanh toán.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thanh toán.Designer.cs">
+      <DependentUpon>Hướng dẫn thanh toán.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thiết bị.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thiết bị.Designer.cs">
+      <DependentUpon>Hướng dẫn thiết bị.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thuê phòng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Hướng dẫn thuê phòng.Designer.cs">
+      <DependentUpon>Hướng dẫn thuê phòng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\LapHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\LapHoaDon.Designer.cs">
+      <DependentUpon>LapHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Quanlytaikhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Quanlytaikhoan.Designer.cs">
+      <DependentUpon>Quanlytaikhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ucDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ucDichVu.Designer.cs">
+      <DependentUpon>ucDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Huongdan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Huongdan.Designer.cs">
+      <DependentUpon>Huongdan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyDichVu.Designer.cs">
+      <DependentUpon>QuanLyDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyKhachHang.Designer.cs">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyNhanVien.Designer.cs">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\Quanlyphong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\Quanlyphong.Designer.cs">
+      <DependentUpon>Quanlyphong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyThietBi.Designer.cs">
+      <DependentUpon>QuanLyThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyThuePhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyThuePhong.Designer.cs">
+      <DependentUpon>QuanLyThuePhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyTraPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\QuanLyTraPhong.Designer.cs">
+      <DependentUpon>QuanLyTraPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyKhachSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyKhachSan.Designer.cs">
+      <DependentUpon>QuanLyKhachSan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BOPHAN.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CHITIETHD.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DICHVU.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DICHVU_SD.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HOADON.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KHACHHANG.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LOAIPHONG.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NHANVIEN.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PHIEUTHUEPHONG.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PHONG.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QLKhachSan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QLKhachSan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QLKhachSan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLKhachSan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QUYEN.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TAIKHOAN.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\THIETBI.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\THIETBI_SD.cs">
+      <DependentUpon>QLKhachSan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Controls\DangKy.resx">
+      <DependentUpon>DangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Huongdan.resx">
+      <DependentUpon>Huongdan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Hướng dẫn dịch vụ.resx">
+      <DependentUpon>Hướng dẫn dịch vụ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Hướng dẫn quản lý phòng.resx">
+      <DependentUpon>Hướng dẫn quản lý phòng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Hướng dẫn thanh toán.resx">
+      <DependentUpon>Hướng dẫn thanh toán.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Hướng dẫn thiết bị.resx">
+      <DependentUpon>Hướng dẫn thiết bị.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Hướng dẫn thuê phòng.resx">
+      <DependentUpon>Hướng dẫn thuê phòng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\LapHoaDon.resx">
+      <DependentUpon>LapHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyDichVu.resx">
+      <DependentUpon>QuanLyDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyKhachHang.resx">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Quanlyphong.resx">
+      <DependentUpon>Quanlyphong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\Quanlytaikhoan.resx">
+      <DependentUpon>Quanlytaikhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyThietBi.resx">
+      <DependentUpon>QuanLyThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyThuePhong.resx">
+      <DependentUpon>QuanLyThuePhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\QuanLyTraPhong.resx">
+      <DependentUpon>QuanLyTraPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\ucDichVu.resx">
+      <DependentUpon>ucDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyKhachSan.resx">
+      <DependentUpon>QuanLyKhachSan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\QLKhachSan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLKhachSan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QLKhachSan.edmx.diagram">
+      <DependentUpon>QLKhachSan.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Đăng ký.png" />
+    <None Include="Images\phong.png" />
+    <None Include="Images\DichVu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\dangnhap.png" />
+    <None Include="Images\khach-san-ngoc-phat-da-lat-1-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QLKS\images\Dangky.png" />
+    <Content Include="QLKS\images\Dangnhap.png" />
+    <Content Include="QLKS\images\dichvu.png" />
+    <Content Include="QLKS\images\DichVuks.png" />
+    <Content Include="QLKS\images\FormMain.png" />
+    <Content Include="QLKS\images\phieeusthuephong.png" />
+    <Content Include="QLKS\images\qlnd.png" />
+    <Content Include="QLKS\images\qlnv.png" />
+    <Content Include="QLKS\images\quanlyphong.png" />
+    <Content Include="QLKS\images\quanlytb.png" />
+    <Content Include="QLKS\images\thanhtoanp.png" />
+    <Content Include="QLKS\index.html" />
+    <None Include="Resources\quanlytb3.png" />
+    <None Include="Resources\quanlytb2.png" />
+    <None Include="Resources\quanlytb1.png" />
+    <None Include="Resources\quanlytb.png" />
+    <None Include="Resources\thietbi.png" />
+    <None Include="Images\dky.png" />
+    <None Include="Images\Screenshot %2883%29.png" />
+    <None Include="Images\ks.jpg" />
+    <Content Include="Model\QLKhachSan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLKhachSan.edmx</DependentUpon>
+      <LastGenOutput>QLKhachSan.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\QLKhachSan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLKhachSan.edmx</DependentUpon>
+      <LastGenOutput>QLKhachSan.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
